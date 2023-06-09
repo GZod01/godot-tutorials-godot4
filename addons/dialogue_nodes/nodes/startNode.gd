@@ -1,11 +1,11 @@
-tool
+@tool
 extends GraphNode
 
 
 signal modified
 signal run_tree
 
-onready var ID = $HBoxContainer/ID.text
+@onready var ID = $HBoxContainer/ID.text
 
 
 # convert graph/tree from this node to dict

@@ -3,9 +3,9 @@
 [ext_resource path="res://addons/dialogue_nodes/nodes/dialogueNode.gd" type="Script" id=1]
 
 [node name="DialogueNode" type="GraphNode"]
-margin_right = 200.0
-margin_bottom = 201.0
-rect_min_size = Vector2( 200, 200 )
+offset_right = 200.0
+offset_bottom = 201.0
+custom_minimum_size = Vector2( 200, 200 )
 title = "Dialogue"
 show_close = true
 resizable = true
@@ -45,44 +45,44 @@ __meta__ = {
 }
 
 [node name="SpeakerLabel" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 184.0
-margin_bottom = 38.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 38.0
 text = "Speaker"
 
 [node name="Speaker" type="LineEdit" parent="."]
-margin_left = 16.0
-margin_top = 39.0
-margin_right = 184.0
-margin_bottom = 63.0
-hint_tooltip = "The name of the speaker shown in the dialogues."
+offset_left = 16.0
+offset_top = 39.0
+offset_right = 184.0
+offset_bottom = 63.0
+tooltip_text = "The name of the speaker shown in the dialogues."
 
 [node name="DialogueLabel" type="Label" parent="."]
-margin_left = 16.0
-margin_top = 64.0
-margin_right = 184.0
-margin_bottom = 78.0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 78.0
 text = "Dialogue"
 
 [node name="Dialogue" type="TextEdit" parent="."]
-margin_left = 16.0
-margin_top = 79.0
-margin_right = 184.0
-margin_bottom = 170.0
-rect_min_size = Vector2( 0, 91 )
-hint_tooltip = "The dialogue displayed in the DialogueBox.
+offset_left = 16.0
+offset_top = 79.0
+offset_right = 184.0
+offset_bottom = 170.0
+custom_minimum_size = Vector2( 0, 91 )
+tooltip_text = "The dialogue displayed in the DialogueBox.
 Use [bbcodes] to add extra effects to your dialogue."
 size_flags_vertical = 3
-syntax_highlighting = true
+syntax_highlighter = true
 highlight_all_occurrences = true
 wrap_enabled = true
 
 [node name="Option1" type="LineEdit" parent="."]
-margin_left = 16.0
-margin_top = 171.0
-margin_right = 184.0
-margin_bottom = 195.0
+offset_left = 16.0
+offset_top = 171.0
+offset_right = 184.0
+offset_bottom = 195.0
 placeholder_text = "Option1"
 
 [connection signal="resize_request" from="." to="." method="_on_resize"]

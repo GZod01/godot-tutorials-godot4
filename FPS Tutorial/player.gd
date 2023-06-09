@@ -1,14 +1,14 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var speed = 10
-export var accel = 10
-export var gravity = 50
-export var jump = 15
-export var sensitivity = 0.2
-export var max_angle = 90
-export var min_angle = -80
+@export var speed = 10
+@export var accel = 10
+@export var gravity = 50
+@export var jump = 15
+@export var sensitivity = 0.2
+@export var max_angle = 90
+@export var min_angle = -80
 
-onready var head = $Head
+@onready var head = $Head
 
 var look_rot = Vector3.ZERO
 var move_dir = Vector3.ZERO
@@ -37,7 +37,10 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, move_dir.x * speed, accel * delta)
 	velocity.z = lerp(velocity.z, move_dir.z * speed, accel * delta)
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	set_velocity(velocity)
+	set_up_direction(Vector3.UP)
+	move_and_slide()
+	velocity = velocity
 
 
 func _input(event):

@@ -1,6 +1,6 @@
-extends Spatial
+extends Node3D
 
-export var open = false
+@export var open = false
 
 var playback = null
 

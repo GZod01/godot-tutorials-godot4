@@ -1,12 +1,12 @@
-extends Spatial
+extends Node3D
 
 signal rotation_started
 signal rotation_ended
 
-onready var ice_ray = $IceRay
-onready var indicator = $Indicator
-onready var animation_player = $AnimationPlayer
-onready var block_scene = load("res://Ice Tutorial/Ice Power/Block.tscn")
+@onready var ice_ray = $IceRay
+@onready var indicator = $Indicator
+@onready var animation_player = $AnimationPlayer
+@onready var block_scene = load("res://Ice Tutorial/Ice Power/Block.tscn")
 
 var active = false
 var angle = 0
@@ -17,13 +17,13 @@ func _process(_delta):
 		if not active:
 			active = true
 		else:
-			angle = stepify(wrapi(angle + 90, 0, 360), 90)
+			angle = snapped(wrapi(angle + 90, 0, 360), 90)
 		animation_player.play("RESET")
-		yield(animation_player, "animation_finished")
+		await animation_player.animation_finished
 		animation_player.play("glow")
 	elif Input.is_action_just_pressed("ui_cancel"):
 		animation_player.play("fade")
-		yield(animation_player, "animation_finished")
+		await animation_player.animation_finished
 		active = false
 		angle = 0
 	
@@ -32,8 +32,8 @@ func _process(_delta):
 		
 		if collision_normal.dot(Vector3.UP) > 0.5:
 			var offset_dist = ice_ray.get_collision_point().distance_to(global_transform.origin)
-			indicator.translation.z = -offset_dist
-			indicator.global_transform.basis = owner.global_transform.basis.rotated(Vector3.UP, deg2rad(angle))
+			indicator.position.z = -offset_dist
+			indicator.global_transform.basis = owner.global_transform.basis.rotated(Vector3.UP, deg_to_rad(angle))
 			indicator.show()
 			
 			if Input.is_action_just_pressed("mouse_left"):
@@ -55,7 +55,7 @@ func _input(event):
 
 
 func create_block():
-	var new_block = block_scene.instance()
+	var new_block = block_scene.instantiate()
 	get_tree().current_scene.add_child(new_block)
 	new_block.global_transform.origin = indicator.global_transform.origin
 	new_block.global_transform.basis = indicator.global_transform.basis

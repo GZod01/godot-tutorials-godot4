@@ -1,16 +1,16 @@
-tool
+@tool
 extends HSplitContainer
 
 
 signal node_added(node_name)
 signal node_deleted(node_name)
 
-export (Array, String, FILE, "*.tscn, *.scn") var nodeScenes
+@export (Array, String, FILE, "*.tscn, *.scn") var nodeScenes
 
-onready var files = $SidePanel/Files
-onready var variables = $SidePanel/Variables
-onready var graph = $Graph
-onready var popup = $Graph/PopupMenu
+@onready var files = $SidePanel/Files
+@onready var variables = $SidePanel/Variables
+@onready var graph = $Graph
+@onready var popup = $Graph/PopupMenu
 
 var cursor_pos = Vector2.ZERO
 var nodes = []
@@ -24,8 +24,8 @@ func _ready():
 
 
 func show_menu(pos):
-	popup.popup(Rect2(pos.x, pos.y, popup.rect_size.x, popup.rect_size.y))
-	cursor_pos = (pos - graph.rect_global_position + graph.scroll_offset) / graph.zoom
+	popup.popup(Rect2(pos.x, pos.y, popup.size.x, popup.size.y))
+	cursor_pos = (pos - graph.global_position + graph.scroll_offset) / graph.zoom
 
 
 ## Nodes 
@@ -38,7 +38,7 @@ func init_nodes():
 	# add entries for nodes
 	for i in range(len(nodeScenes)):
 		var scene = load(nodeScenes[i])
-		var scene_name = scene.instance().name
+		var scene_name = scene.instantiate().name
 		nodes[i] = {"name": scene_name, "scene": scene}
 
 
@@ -53,20 +53,20 @@ func add_node(id, clone = null, node_name = '', offset = null):
 		_select_all_nodes(false)
 	
 	# create new node
-	new_node = nodes[id].scene.instance()
+	new_node = nodes[id].scene.instantiate()
 	
 	#new_node.offset = (get_viewport().get_mouse_position() + graph.scroll_offset) / graph.zoom - (new_node.rect_size * 0.5) if offset == null else offset
-	new_node.offset = cursor_pos - (new_node.rect_size * 0.5) if offset == null else offset
+	new_node.offset = cursor_pos - (new_node.size * 0.5) if offset == null else offset
 	new_node.selected = true
 	
-	new_node.connect("dragged", self, "_on_node_dragged")
-	new_node.connect("close_request", self, "remove_node", [new_node])
-	new_node.connect("modified", graph, "_on_modified")
-	new_node.connect("close_request", graph, "_on_modified")
+	new_node.connect("dragged", Callable(self, "_on_node_dragged"))
+	new_node.connect("close_request", Callable(self, "remove_node").bind(new_node))
+	new_node.connect("modified", Callable(graph, "_on_modified"))
+	new_node.connect("close_request", Callable(graph, "_on_modified"))
 	
 	# dialogue node signals
 	if new_node.has_signal("connection_move"):
-		new_node.connect("connection_move", self, "_move_connection_slot", [new_node])
+		new_node.connect("connection_move", Callable(self, "_move_connection_slot").bind(new_node))
 	
 	# set nodeId and add to graph
 	new_node.name = (str(id)+'_1') if node_name == '' else node_name
@@ -142,7 +142,7 @@ func _on_node_dragged(_from, to):
 func _on_nodes_duplicated():
 	for child in graph.get_children():
 		if child is GraphNode and child.is_selected():
-			cursor_pos = (get_viewport().get_mouse_position() - graph.rect_global_position + graph.scroll_offset) / graph.zoom
+			cursor_pos = (get_viewport().get_mouse_position() - graph.global_position + graph.scroll_offset) / graph.zoom
 			add_node(-1, child)
 
 
@@ -161,7 +161,7 @@ func _select_all_nodes(select = true):
 func _on_connection_to_empty(from, from_slot, release_position):
 	request_node = from
 	request_slot = from_slot
-	show_menu(release_position + graph.rect_global_position)
+	show_menu(release_position + graph.global_position)
 
 
 func _on_connection_request(from, from_slot, to, to_slot):

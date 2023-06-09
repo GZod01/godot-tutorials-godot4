@@ -1,10 +1,10 @@
-tool
+@tool
 extends GraphNode
 
 
 signal modified
 
-onready var value = $SignalValue
+@onready var value = $SignalValue
 
 
 func _to_dict(graph):

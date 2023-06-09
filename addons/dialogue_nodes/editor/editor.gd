@@ -1,21 +1,21 @@
-tool
+@tool
 extends Control
 
 
-onready var fileMenu = $Main/ToolBar/FileMenu
-onready var addMenu = $Main/ToolBar/AddMenu
-onready var popupMenu = $Main/Workspace/Graph/PopupMenu
-onready var runMenu = $Main/ToolBar/RunMenu
-onready var debugMenu = $Main/ToolBar/DebugMenu
-onready var workspace = $Main/Workspace
-onready var graph = $Main/Workspace/Graph
-onready var side_panel = $Main/Workspace/SidePanel
-onready var files = $Main/Workspace/SidePanel/Files
-onready var variables = $Main/Workspace/SidePanel/Variables
-onready var dialogue = $DialogueBox
-onready var newDialogue = $NewDialog
-onready var saveDialogue = $SaveDialog
-onready var openDialogue = $OpenDialog
+@onready var fileMenu = $Main/ToolBar/FileMenu
+@onready var addMenu = $Main/ToolBar/AddMenu
+@onready var popupMenu = $Main/Workspace/Graph/PopupMenu
+@onready var runMenu = $Main/ToolBar/RunMenu
+@onready var debugMenu = $Main/ToolBar/DebugMenu
+@onready var workspace = $Main/Workspace
+@onready var graph = $Main/Workspace/Graph
+@onready var side_panel = $Main/Workspace/SidePanel
+@onready var files = $Main/Workspace/SidePanel/Files
+@onready var variables = $Main/Workspace/SidePanel/Variables
+@onready var dialogue = $DialogueBox
+@onready var newDialogue = $NewDialog
+@onready var saveDialogue = $SaveDialog
+@onready var openDialogue = $OpenDialog
 
 
 var start_nodes = []
@@ -27,10 +27,10 @@ var _debug = false
 func _ready():
 	init_menus()
 	
-	addMenu.get_popup().connect("id_pressed", workspace, "add_node")
-	runMenu.get_popup().connect("id_pressed", self, "_on_run_menu_pressed")
-	fileMenu.get_popup().connect("id_pressed", self, "_on_file_menu_pressed")
-	debugMenu.get_popup().connect("id_pressed", self, "_on_debug_menu_pressed")
+	addMenu.get_popup().connect("id_pressed", Callable(workspace, "add_node"))
+	runMenu.get_popup().connect("id_pressed", Callable(self, "_on_run_menu_pressed"))
+	fileMenu.get_popup().connect("id_pressed", Callable(self, "_on_file_menu_pressed"))
+	debugMenu.get_popup().connect("id_pressed", Callable(self, "_on_debug_menu_pressed"))
 
 
 func init_menus():
@@ -169,7 +169,7 @@ func _on_node_added(node_name):
 		'0':
 			start_nodes.append(node_name)
 			var node = graph.get_node(node_name)
-			node.connect("run_tree", self, "_run_tree", [node])
+			node.connect("run_tree", Callable(self, "_run_tree").bind(node))
 		'2':
 			comment_nodes.append(node_name)
 

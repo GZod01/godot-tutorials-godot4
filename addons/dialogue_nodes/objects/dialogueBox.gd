@@ -1,5 +1,5 @@
-tool
-extends PopupDialog
+@tool
+extends Popup
 class_name DialogueBox
 
 
@@ -9,16 +9,16 @@ signal dialogue_signal(value)
 signal dialogue_ended
 signal variable_changed(var_name, value)
 
-export (String, FILE, "*.json; Dialogue JSON File") var dialogue_file setget load_file
-export (String) var start_id
-export (int, 1, 8) var max_options = 4
-export (int, 'Begin', 'Center', 'End') var options_alignment = 2 setget _set_options_alignment
-export (Array, RichTextEffect) var custom_effects = [RichTextWait.new()]
+@export (String, FILE, "*.json; Dialogue JSON File") var dialogue_file : set = load_file
+@export (String) var start_id
+@export (int, 1, 8) var max_options = 4
+@export (int, 'Begin', 'Center', 'End') var options_alignment = 2: set = _set_options_alignment
+@export (Array, RichTextEffect) var custom_effects = [RichTextWait.new()]
 
 var speaker : Label
 var dialogue : RichTextLabel
 var options : HBoxContainer
-var dict = null setget set_dict
+var dict = null: set = set_dict
 var variables = {}
 var running = false
 var next_icon = preload("res://addons/dialogue_nodes/icons/Play.svg")
@@ -26,8 +26,8 @@ var next_icon = preload("res://addons/dialogue_nodes/icons/Play.svg")
 
 func _enter_tree():
 	# setup popup properties
-	popup_exclusive = true
-	rect_min_size = Vector2(300, 72)
+	exclusive = true
+	custom_minimum_size = Vector2(300, 72)
 	
 	## dialogue box setup code ##
 	# note : edit the code below to change the layout of your dialogue box
@@ -39,10 +39,10 @@ func _enter_tree():
 	margin_container.anchor_top = 0
 	margin_container.anchor_right = 1
 	margin_container.anchor_bottom = 1
-	margin_container.margin_left = 4
-	margin_container.margin_top = 4
-	margin_container.margin_right = -4
-	margin_container.margin_bottom = -4
+	margin_container.offset_left = 4
+	margin_container.offset_top = 4
+	margin_container.offset_right = -4
+	margin_container.offset_bottom = -4
 	
 	var vbox_container = VBoxContainer.new()
 	margin_container.add_child(vbox_container)
@@ -54,7 +54,7 @@ func _enter_tree():
 	
 	dialogue = RichTextLabel.new()
 	vbox_container.add_child(dialogue)
-	dialogue.bbcode_text = 'Sample dialogue.\nLoad a [u]dialogue file[/u].'
+	dialogue.text = 'Sample dialogue.\nLoad a [u]dialogue file[/u].'
 	dialogue.scroll_following = true
 	dialogue.bbcode_enabled = true
 	dialogue.size_flags_vertical = SIZE_EXPAND_FILL
@@ -77,7 +77,7 @@ func _ready():
 	
 	for effect in custom_effects:
 		if effect is RichTextWait:
-			effect.connect("wait_finished", self, "show_options")
+			effect.connect("wait_finished", Callable(self, "show_options"))
 			break
 
 
@@ -94,7 +94,9 @@ func load_file(path):
 	else:
 		var file = File.new()
 		file.open(path, File.READ)
-		dict = parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		dict = test_json_conv.get_data()
 		file.close()
 		
 		if typeof(dict) != TYPE_DICTIONARY:
@@ -185,7 +187,7 @@ func stop():
 
 func set_dialogue(dict):
 	speaker.text = dict['speaker']
-	dialogue.bbcode_text = process_text(dict['dialogue'])
+	dialogue.text = process_text(dict['dialogue'])
 	custom_effects[0].skip = false
 	
 	# hide all options
@@ -198,9 +200,9 @@ func set_dialogue(dict):
 	for idx in dict['options']:
 		var option = options.get_child(int(idx))
 		option.text = process_text(dict['options'][idx]['text'], false)
-		if option.is_connected('pressed', self, 'proceed'):
-			option.disconnect("pressed", self, 'proceed')
-		option.connect("pressed", self, 'proceed', [dict['options'][idx]['link']])
+		if option.is_connected('pressed', Callable(self, 'proceed')):
+			option.disconnect("pressed", Callable(self, 'proceed'))
+		option.connect("pressed", Callable(self, 'proceed').bind(dict['options'][idx]['link'))
 		option.show()
 	
 	# if single empty option
@@ -259,7 +261,7 @@ func set_variable(var_name, type, value, operator = 0):
 			value = str(value)
 		TYPE_INT:
 			value = int(value)
-		TYPE_REAL:
+		TYPE_FLOAT:
 			value = float(value)
 		TYPE_BOOL:
 			value = bool(value)
@@ -304,7 +306,7 @@ func handle_condition(cond_dict):
 		TYPE_INT:
 			value1 = int(value1)
 			value2 = int(value2)
-		TYPE_REAL:
+		TYPE_FLOAT:
 			value1 = float(value1)
 			value2 = float(value2)
 		TYPE_BOOL:

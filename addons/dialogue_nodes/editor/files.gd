@@ -1,4 +1,4 @@
-tool
+@tool
 extends ItemList
 
 
@@ -6,13 +6,13 @@ signal opened(dict)
 signal switched(dict)
 signal closed
 
-export (NodePath) var editor_path
-export (NodePath) var newDialogue_path
-export (NodePath) var saveDialogue_path
-export (NodePath) var openDialogue_path
-export (NodePath) var confirmDialogue_path
+@export (NodePath) var editor_path
+@export (NodePath) var newDialogue_path
+@export (NodePath) var saveDialogue_path
+@export (NodePath) var openDialogue_path
+@export (NodePath) var confirmDialogue_path
 
-onready var popupMenu = $PopupMenu
+@onready var popupMenu = $PopupMenu
 
 var script_icon = preload("res://addons/dialogue_nodes/icons/Script.svg")
 var editor
@@ -33,10 +33,10 @@ func _ready():
 	confirmDialogue = get_node(confirmDialogue_path)
 	
 	##
-	confirmDialogue.get_ok().hide()
+	confirmDialogue.get_ok_button().hide()
 	confirmDialogue.add_button("Save", true, "save_file")
 	confirmDialogue.add_button("Discard", true, "discard_file")
-	confirmDialogue.add_cancel("Cancel")
+	confirmDialogue.add_cancel_button("Cancel")
 	
 	current = -1
 	queued = []
@@ -143,7 +143,9 @@ func open_file(path, internal = false):
 	var file = File.new()
 	file.open(path, File.READ)
 	
-	var dict = parse_json(file.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_as_text())
+	var dict = test_json_conv.get_data()
 	file.close()
 	
 	var file_name : String
@@ -177,7 +179,7 @@ func save_file(idx = current):
 	file.open(metadata['path'], File.WRITE)
 	
 	# save dict to json file	
-	file.store_line(to_json(metadata['dict']))
+	file.store_line(JSON.new().stringify(metadata['dict']))
 	file.close()
 	
 	if editor._debug:
@@ -259,11 +261,11 @@ func _on_confirmDialog_action(action):
 				for idx in queued:
 					save_file(idx)
 					close_file(idx)
-					yield(get_tree(), "idle_frame")
+					await get_tree().idle_frame
 			"discard_file":
 				for idx in queued:
 					close_file(idx)
-					yield(get_tree(), "idle_frame")
+					await get_tree().idle_frame
 	confirmDialogue.hide()
 
 
@@ -272,8 +274,8 @@ func _on_confirmDialog_hide():
 
 
 func _on_rmb_clicked(pos):
-	popupMenu.popup(Rect2(rect_global_position + pos, popupMenu.rect_size))
+	popupMenu.popup(Rect2(global_position + pos, popupMenu.size))
 
 
 func _on_rmb_selected(_idx, pos):
-	popupMenu.popup(Rect2(rect_global_position + pos, popupMenu.rect_size))
+	popupMenu.popup(Rect2(global_position + pos, popupMenu.size))

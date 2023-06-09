@@ -1,4 +1,4 @@
-tool
+@tool
 extends GraphEdit
 # TODO : find some way to discard arguments from signals
 
