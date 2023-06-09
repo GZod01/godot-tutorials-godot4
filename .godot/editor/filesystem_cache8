@@ -1,0 +1,147 @@
+2a60927148abd1d33b818b535e306557
+::res://::1686319599
+default_env.tres::Environment::4213383991540401004::1686320072::0::1::::<><>::
+game_env.tres::Environment::8977852040071467004::1686320072::0::1::::<><>::
+icon.png::CompressedTexture2D::5186324063387738374::1686319612::1686319778::1::::<><>::
+LICENCE.md::TextFile::-1::1686319610::0::1::::<><>::
+::res://addons/::1686319609
+::res://addons/dialogue_nodes/::1686319609
+NodeEditor.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/editor/editor.gd<>res://addons/dialogue_nodes/editor/graph.gd<>res://addons/dialogue_nodes/icons/Back.svg<>res://addons/dialogue_nodes/icons/Forward.svg<>res://addons/dialogue_nodes/objects/dialogueBox.gd<>res://addons/dialogue_nodes/objects/bbcodeWait.gd<>res://addons/dialogue_nodes/editor/workspace.gd<>res://addons/dialogue_nodes/editor/files.gd<>res://addons/dialogue_nodes/editor/variables.gd
+plugin.cfg::TextFile::-1::1686319612::0::1::::<><>::
+plugin.gd::GDScript::-1::1686319704::0::1::::<>EditorPlugin<>::
+::res://addons/dialogue_nodes/editor/::1686319609
+editor.gd::GDScript::-1::1686319704::0::1::::<>Control<>::
+files.gd::GDScript::-1::1686319704::0::1::::<>ItemList<>::
+graph.gd::GDScript::-1::1686319704::0::1::::<>GraphEdit<>::
+variables.gd::GDScript::-1::1686319706::0::1::::<>VBoxContainer<>::
+workspace.gd::GDScript::-1::1686319706::0::1::::<>HSplitContainer<>::
+::res://addons/dialogue_nodes/icons/::1686319609
+Back.svg::CompressedTexture2D::7389755651723110896::1686319612::1686319780::1::::<><>::
+Dialogue.svg::CompressedTexture2D::2756422029808376836::1686319612::1686319780::1::::<><>::
+Forward.svg::CompressedTexture2D::3328374088049693768::1686319612::1686319780::1::::<><>::
+Play.svg::CompressedTexture2D::1078556619404297747::1686319612::1686319780::1::::<><>::
+Remove.svg::CompressedTexture2D::4142764124372893542::1686319612::1686319780::1::::<><>::
+Script.svg::CompressedTexture2D::847463497579223508::1686319612::1686319780::1::::<><>::
+Stop.svg::CompressedTexture2D::4635914396133014278::1686319612::1686319780::1::::<><>::
+::res://addons/dialogue_nodes/nodes/::1686319610
+commentNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+CommentNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/nodes/commentNode.gd
+conditionNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+ConditionNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/nodes/conditionNode.gd
+dialogueNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+DialogueNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/nodes/dialogueNode.gd
+setNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+SetNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/nodes/setNode.gd
+signalNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+SignalNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/nodes/signalNode.gd
+startNode.gd::GDScript::-1::1686319704::0::1::::<>GraphNode<>::
+StartNode.tscn::PackedScene::-1::1686319704::0::1::::<><>::res://addons/dialogue_nodes/icons/Play.svg<>res://addons/dialogue_nodes/nodes/startNode.gd
+::res://addons/dialogue_nodes/objects/::1686319610
+bbcodeWait.gd::GDScript::-1::1686319704::0::1::::RichTextWait<>RichTextEffect<>::
+dialogueBox.gd::GDScript::-1::1686319704::0::1::::DialogueBox<>Popup<>::
+::res://addons/dialogue_nodes/themes/::1686319610
+bubbly.theme::Theme::-1::1686319612::0::1::::<><>::res://addons/dialogue_nodes/themes/Poppins-Regular.ttf
+C&C Red Alert [INET].ttf::FontFile::7305079517608735353::1686319612::1686319768::1::::<><>::
+pixel-panel.png::CompressedTexture2D::8207571311043508319::1686319612::1686319780::1::::<><>::
+pixelart.theme::Theme::-1::1686319612::0::1::::<><>::res://addons/dialogue_nodes/themes/C&C Red Alert [INET].ttf<>res://addons/dialogue_nodes/themes/pixel-panel.png
+Poppins-Regular.ttf::FontFile::4793485964913277219::1686319612::1686319768::1::::<><>::
+README [INET].txt::TextFile::-1::1686319612::0::1::::<><>::
+tech-panel.png::CompressedTexture2D::6791465885758824888::1686319612::1686319780::1::::<><>::
+tech.theme::Theme::-1::1686319612::0::1::::<><>::res://addons/dialogue_nodes/themes/Poppins-Regular.ttf<>res://addons/dialogue_nodes/themes/tech-panel.png
+::res://FPS Tutorial/::1686319607
+player.gd::GDScript::-1::1686319708::0::1::::<>CharacterBody3D<>::
+Player.tscn::PackedScene::-1::1686319708::0::1::::<><>::res://FPS Tutorial/player.gd
+::res://FPS Tutorial/Map/::1686319608
+Floor.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://FPS Tutorial/Map/textures/floor-diff.png<>res://FPS Tutorial/Map/textures/floor-metal-floor-rough.png<>res://FPS Tutorial/Map/textures/floor-norm.png
+Overworld.tscn::PackedScene::-1::1686319708::0::1::::<><>::res://FPS Tutorial/Map/Floor.material<>res://FPS Tutorial/Map/wall.material<>res://game_env.tres<>res://FPS Tutorial/Player.tscn
+wall.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://FPS Tutorial/Map/textures/wall-diff.png<>res://FPS Tutorial/Map/textures/wall-rough.png<>res://FPS Tutorial/Map/textures/wall-norm.png
+::res://FPS Tutorial/Map/textures/::1686319608
+floor-diff.png::CompressedTexture2D::3248072458889220171::1686319610::1686320062::1::::<><>::
+floor-metal-floor-rough.png::CompressedTexture2D::9204313123477726467::1686319610::1686320062::1::::<><>::
+floor-norm.png::CompressedTexture2D::642041953761751098::1686319610::1686320062::1::::<><>::
+wall-diff.png::CompressedTexture2D::6438143415826643201::1686319610::1686320062::1::::<><>::
+wall-norm.png::CompressedTexture2D::4162962044444319548::1686319610::1686320062::1::::<><>::
+wall-rough.png::CompressedTexture2D::6897872526643420371::1686319610::1686320062::1::::<><>::
+::res://Ice Tutorial/::1686319608
+crosshair.png::CompressedTexture2D::8877449850638567104::1686319610::1686319770::1::::<><>::
+README.md::TextFile::-1::1686319610::0::1::::<><>::
+::res://Ice Tutorial/Ice Power/::1686319608
+Block.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Ice Tutorial/Ice Power/textures/blockFade.png<>res://Ice Tutorial/Ice Power/textures/blockRough.png<>res://Ice Tutorial/Ice Power/textures/blockNorm.png<>res://Ice Tutorial/Ice Power/textures/blockDiff.png<>res://Ice Tutorial/Ice Power/textures/blockEmit.png<>res://Ice Tutorial/Ice Power/textures/basePattern.png<>res://Ice Tutorial/Ice Power/textures/baseFade.png<>res://Ice Tutorial/Ice Power/textures/particle0.png<>res://Ice Tutorial/Ice Power/textures/particle1.png
+icepower.gd::GDScript::-1::1686319706::0::1::::<>Node3D<>::
+IcePower.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Ice Tutorial/Ice Power/icepower.gd<>res://Ice Tutorial/Ice Power/textures/blockRough.png<>res://Ice Tutorial/Ice Power/textures/blockDiff.png<>res://Ice Tutorial/Ice Power/textures/blockEmit.png<>res://Ice Tutorial/Ice Power/textures/pattern1.png<>res://Ice Tutorial/Ice Power/textures/icePattern.png
+::res://Ice Tutorial/Ice Power/textures/::1686319608
+baseFade.png::CompressedTexture2D::6071438397432190212::1686319610::1686319784::1::::<><>::
+basePattern.png::CompressedTexture2D::8572083685169503986::1686319610::1686319784::1::::<><>::
+blockDiff.png::CompressedTexture2D::5816290575807114204::1686319610::1686320058::1::::<><>::
+blockEmit.png::CompressedTexture2D::5009809089549338680::1686319610::1686320058::1::::<><>::
+blockFade.png::CompressedTexture2D::4099005866890324473::1686319610::1686319784::1::::<><>::
+blockNorm.png::CompressedTexture2D::6975116548333794793::1686319610::1686319786::1::::<><>::
+blockRough.png::CompressedTexture2D::5288434433993890901::1686319610::1686320058::1::::<><>::
+icePattern.png::CompressedTexture2D::4872851169912850954::1686319610::1686319786::1::::<><>::
+particle0.png::CompressedTexture2D::3737904572528755680::1686319610::1686319786::1::::<><>::
+particle1.png::CompressedTexture2D::4683536633871007919::1686319610::1686319786::1::::<><>::
+pattern1.png::CompressedTexture2D::6284517469267494992::1686319610::1686319786::1::::<><>::
+::res://Ice Tutorial/Map/::1686319608
+floor.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Ice Tutorial/Map/textures/metal-diff.png<>res://Ice Tutorial/Map/textures/metal-metal-metal-rough.png<>res://Ice Tutorial/Map/textures/metal-norm.png
+Overworld.tscn::PackedScene::8762576038786331984::1686320072::0::1::::<><>::res://Ice Tutorial/Player/Player.tscn<>res://Interact Tutorial/Map/floor.material<>res://Interact Tutorial/Map/wall.material<>res://Interact Tutorial/Platform/Platform.tscn<>res://Interact Tutorial/Door/Door.tscn<>res://Interact Tutorial/Button/Button.tscn<>res://game_env.tres
+wall.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Ice Tutorial/Map/textures/wall-diff.png<>res://Ice Tutorial/Map/textures/wall-rough.png<>res://Ice Tutorial/Map/textures/wall-norm.png
+::res://Ice Tutorial/Map/textures/::1686319608
+button-diff.png::CompressedTexture2D::4225142380122557909::1686319610::1686319786::1::::<><>::
+button-norm.png::CompressedTexture2D::7784879689220444572::1686319610::1686319786::1::::<><>::
+button-rough.png::CompressedTexture2D::8070248558682606937::1686319610::1686319786::1::::<><>::
+door-diff.png::CompressedTexture2D::3791439922633589562::1686319610::1686319788::1::::<><>::
+door-metal-door-rough.png::CompressedTexture2D::2654630419994883456::1686319610::1686319774::1::::<><>::
+door-norm.png::CompressedTexture2D::5605604741277895461::1686319610::1686319774::1::::<><>::
+metal-diff.png::CompressedTexture2D::7306999491280868206::1686319610::1686320080::1::::<><>::
+metal-metal-metal-rough.png::CompressedTexture2D::918313918308464102::1686319610::1686320080::1::::<><>::
+metal-norm.png::CompressedTexture2D::3699797292845470274::1686319610::1686320080::1::::<><>::
+platform-diff.png::CompressedTexture2D::7709531383291493908::1686319610::1686319772::1::::<><>::
+platform-metal-platform-rough.png::CompressedTexture2D::9071406049993436281::1686319610::1686319772::1::::<><>::
+platform-norm.png::CompressedTexture2D::1045024721318655943::1686319610::1686319772::1::::<><>::
+wall-diff.png::CompressedTexture2D::2237924587126090310::1686319610::1686320082::1::::<><>::
+wall-norm.png::CompressedTexture2D::2478007849950493666::1686319610::1686320082::1::::<><>::
+wall-rough.png::CompressedTexture2D::8088454460772559843::1686319610::1686320082::1::::<><>::
+::res://Ice Tutorial/Player/::1686319608
+Player.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Player/player.gd<>res://Interact Tutorial/Player/interactRay.gd<>res://Interact Tutorial/crosshair.png<>res://addons/dialogue_nodes/themes/Poppins-Regular.ttf<>res://Ice Tutorial/Ice Power/IcePower.tscn
+::res://Interact Tutorial/::1686319609
+crosshair.png::CompressedTexture2D::5416267832622442154::1686319610::1686319778::1::::<><>::
+::res://Interact Tutorial/Button/::1686319609
+button.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Interact Tutorial/Map/textures/button-diff.png<>res://Interact Tutorial/Map/textures/button-rough.png<>res://Interact Tutorial/Map/textures/button-norm.png
+Button.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Button/button.material<>res://Interact Tutorial/Button/Interactable.gd
+Interactable.gd::GDScript::-1::1686319706::0::1::::Interactable<>StaticBody3D<>::
+::res://Interact Tutorial/Dialogues/::1686319609
+buttonDialogue.json::JSON::-1::1686319610::0::1::::<><>::
+dialogues.gd::GDScript::-1::1686319706::0::1::::<>CanvasLayer<>::
+::res://Interact Tutorial/Door/::1686319609
+door.gd::GDScript::-1::1686319706::0::1::::<>Node3D<>::
+door.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Interact Tutorial/Map/textures/door-diff.png<>res://Interact Tutorial/Map/textures/door-metal-door-rough.png<>res://Interact Tutorial/Map/textures/door-norm.png
+Door.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Door/door.material<>res://Interact Tutorial/Door/door.gd<>res://Interact Tutorial/Door/smoke.png
+smoke.png::CompressedTexture2D::8080075845037551863::1686319610::1686320054::1::::<><>::
+::res://Interact Tutorial/Map/::1686319609
+floor.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Interact Tutorial/Map/textures/metal-diff.png<>res://Interact Tutorial/Map/textures/metal-metal-metal-rough.png<>res://Interact Tutorial/Map/textures/metal-norm.png
+Overworld.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Player/Player.tscn<>res://Interact Tutorial/Map/floor.material<>res://Interact Tutorial/Map/wall.material<>res://Interact Tutorial/Button/Button.tscn<>res://addons/dialogue_nodes/objects/dialogueBox.gd<>res://addons/dialogue_nodes/objects/bbcodeWait.gd<>res://addons/dialogue_nodes/themes/bubbly.theme<>res://Interact Tutorial/Dialogues/dialogues.gd<>res://addons/dialogue_nodes/themes/Poppins-Regular.ttf<>res://Interact Tutorial/Door/Door.tscn<>res://Interact Tutorial/Platform/Platform.tscn<>res://game_env.tres
+wall.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Interact Tutorial/Map/textures/wall-diff.png<>res://Interact Tutorial/Map/textures/wall-rough.png<>res://Interact Tutorial/Map/textures/wall-norm.png
+::res://Interact Tutorial/Map/textures/::1686319609
+button-diff.png::CompressedTexture2D::4654204559694231739::1686319610::1686320054::1::::<><>::
+button-norm.png::CompressedTexture2D::6722626813498182881::1686319610::1686320054::1::::<><>::
+button-rough.png::CompressedTexture2D::836536241969498273::1686319610::1686320054::1::::<><>::
+door-diff.png::CompressedTexture2D::6077851876593724209::1686319610::1686320054::1::::<><>::
+door-metal-door-rough.png::CompressedTexture2D::1350614445714396756::1686319610::1686320054::1::::<><>::
+door-norm.png::CompressedTexture2D::8910984827096991410::1686319610::1686320054::1::::<><>::
+metal-diff.png::CompressedTexture2D::5290313868790406452::1686319610::1686320056::1::::<><>::
+metal-metal-metal-rough.png::CompressedTexture2D::1973587153404683851::1686319610::1686320056::1::::<><>::
+metal-norm.png::CompressedTexture2D::6997792668946938844::1686319610::1686320058::1::::<><>::
+platform-diff.png::CompressedTexture2D::2404746281504953643::1686319610::1686320056::1::::<><>::
+platform-metal-platform-rough.png::CompressedTexture2D::2002522797041064572::1686319610::1686320056::1::::<><>::
+platform-norm.png::CompressedTexture2D::5237624260041550587::1686319610::1686320054::1::::<><>::
+wall-diff.png::CompressedTexture2D::518818791157250746::1686319610::1686320056::1::::<><>::
+wall-norm.png::CompressedTexture2D::6831875739020836498::1686319610::1686320056::1::::<><>::
+wall-rough.png::CompressedTexture2D::3328328613509880114::1686319610::1686320056::1::::<><>::
+::res://Interact Tutorial/Platform/::1686319609
+platform.gd::GDScript::-1::1686319706::0::1::::<>Node3D<>::
+platform.material::StandardMaterial3D::-1::1686319610::0::1::::<><>::res://Interact Tutorial/Map/textures/platform-diff.png<>res://Interact Tutorial/Map/textures/platform-metal-platform-rough.png<>res://Interact Tutorial/Map/textures/platform-norm.png
+Platform.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Platform/platform.material<>res://Interact Tutorial/Map/floor.material<>res://Interact Tutorial/Platform/platform.gd
+::res://Interact Tutorial/Player/::1686319609
+interactRay.gd::GDScript::-1::1686319706::0::1::::<>RayCast3D<>::
+player.gd::GDScript::-1::1686319706::0::1::::Player<>CharacterBody3D<>::
+Player.tscn::PackedScene::-1::1686319706::0::1::::<><>::res://Interact Tutorial/Player/player.gd<>res://Interact Tutorial/Player/interactRay.gd<>res://Interact Tutorial/crosshair.png<>res://addons/dialogue_nodes/themes/Poppins-Regular.ttf

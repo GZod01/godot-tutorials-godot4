@@ -1,0 +1,4 @@
+res://default_env.tres
+res://Ice Tutorial/Map/Overworld.tscn
+res://game_env.tres
+res://Interact Tutorial/Player/player.gd

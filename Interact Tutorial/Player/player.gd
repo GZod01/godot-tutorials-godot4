@@ -13,7 +13,6 @@ extends CharacterBody3D
 
 var look_rot = Vector3.ZERO
 var move_dir = Vector3.ZERO
-var velocity = Vector3.ZERO
 var looking = true
 
 func _ready():
